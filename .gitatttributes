@@ -1,0 +1,2 @@
+*.html linguist-detectable=false
+*.pug linguist-detectable=false
