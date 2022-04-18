@@ -1,13 +1,9 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
-import configs from './config';
+//import configs from './config';
 import routes from './routes/index.js';
 import db from './config/db.js';
-import dotenv from 'dotenv';
-dotenv.config({ path: "variables.env" });
-
-
 
 // conectar la base de datos
 db.authenticate()
@@ -18,17 +14,22 @@ db.authenticate()
 const app = express();
 // habilitar PUG:
 app.set('view engine', 'pug');
+
+
+const __dirname = path.resolve();
+console.log('directory-name', __dirname);
+
 // Añadir las vistas
-app.set('views', path.join(_dirname, './views'));
+app.set('views', path.join(__dirname, './views'));
 
 // Definir la carpeta publica (donde se guarda el css e imagenes)
 app.use(express.static('public'));
 
 //validar si estamos en desarrollo o en produccion 
-const config = configs[app.get('env')];
+//const config = configs[app.get('env')];
 
 //creamos la variable para este sitio web
-app.locals.titulo = config.nombresitio
+//app.locals.titulo = config.nombresitio
 
 // obtener año actual 
 app.use((req, res, next) => {
@@ -43,7 +44,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Agregar Router
-app.use('/', routes());
+app.use('/', routes);
 
 // **Puerto y host para la app**//
 const host = process.env.HOST || '0.0.0.0';

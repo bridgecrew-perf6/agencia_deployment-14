@@ -1,4 +1,4 @@
-import { Testimoniales } from "../models/Testimoniales.js";
+import Testimoniales from "../models/Testimoniales.js";
 
 const guardarTestimomial = async(req, res) => {
     //console.log(req.body.nombre)

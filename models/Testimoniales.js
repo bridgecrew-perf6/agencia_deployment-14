@@ -4,7 +4,7 @@ import db from "../config/db.js";
 // EN MODEL - VIEW - CONTROLER esto es el model. Donde se definen los datos de mi base de datos 
 // utilizando sequelize. 
 
-export const Testimoniales = db.define('testimoniales', {
+const Testimoniales = db.define('testimoniales', {
     nombre: {
         type: Sequelize.STRING
     },
@@ -15,4 +15,6 @@ export const Testimoniales = db.define('testimoniales', {
         type: Sequelize.STRING
     },
 
-})
+});
+
+export default Testimoniales;

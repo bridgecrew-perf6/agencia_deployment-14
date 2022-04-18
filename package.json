@@ -4,8 +4,8 @@
     "description": "Proyecto con Node.js",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon index.js",
-        "start": "node index.js"
+        "dev": "nodemon index1.js",
+        "start": "node index1.js"
     },
     "type": "module",
     "author": "Santiago Astigueta",
